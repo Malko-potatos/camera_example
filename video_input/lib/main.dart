@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
+import 'camera_live_screen.dart';
+
 void main() async {
   // 앱을 시작하기 전에 필요한 초기화 작업을 수행합니다.
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,6 +72,14 @@ class CameraInfoScreen extends StatelessWidget {
               ),
               contentPadding: const EdgeInsets.all(10.0),
               tileColor: Colors.grey[100],
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CameraPreviewScreen(camera: camera),
+                  ),
+                );
+              },
             ),
           );
         },
